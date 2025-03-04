@@ -23,7 +23,6 @@ To revolutionize the legal industry by creating AI tools that augment human expe
 ### ⚖️ Litigation Support Suite
 - **ArgumentCraft**: AI-assisted brief writing with automatic citation and argument strength assessment
 - **WitnessPrep**: Deposition and testimony analysis tools with contradiction detection
-- **JuryInsight**: Jury selection assistance using demographic and psychographic modeling
 
 ### 📝 Document Automation
 - **DraftCounsel**: Intelligent document generation for contracts, pleadings, and legal correspondence
