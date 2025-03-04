@@ -2,8 +2,6 @@
 
 ## Transforming Legal Practice Through Advanced AI
 
-![Deep-Counsel Logo](https://placeholder.com/logo)
-
 **Deep-Counsel** is pioneering the intersection of artificial intelligence and legal practice, developing cutting-edge solutions that empower legal professionals to work smarter, faster, and with greater insight.
 
 ## Our Mission
