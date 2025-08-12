@@ -1,37 +1,68 @@
 'use client'
 
-// import Link from 'next/link' // No longer needed directly here for Sign In button
 import React from 'react'
-
-import { User } from '@supabase/supabase-js'
-
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { Badge } from '@/components/ui/badge'
+import { useChat } from '@/lib/chat-context'
+import { FileText, PanelRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-import { useSidebar } from '@/components/ui/sidebar'
+export function Header() {
+  const { state, toggleArtifactPanel } = useChat()
+  const { artifacts, ui } = state
+  
+  const artifactCount = artifacts.order.length
+  const hasArtifacts = artifactCount > 0
 
-// import { Button } from './ui/button' // No longer needed directly here for Sign In button
-import GuestMenu from './guest-menu' // Import the new GuestMenu component
-import UserMenu from './user-menu'
-
-interface HeaderProps {
-  user: User | null
-}
-
-export const Header: React.FC<HeaderProps> = ({ user }) => {
-  const { open } = useSidebar()
   return (
-    <header
-      className={cn(
-        'absolute top-0 right-0 p-2 flex justify-between items-center z-10 backdrop-blur lg:backdrop-blur-none bg-background/80 lg:bg-transparent transition-[width] duration-200 ease-linear',
-        open ? 'md:w-[calc(100%-var(--sidebar-width))]' : 'md:w-full',
-        'w-full'
-      )}
-    >
-      {/* This div can be used for a logo or title on the left if needed */}
-      <div></div>
-
-      <div className="flex items-center gap-2">
-        {user ? <UserMenu user={user} /> : <GuestMenu />}
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 max-w-screen-2xl items-center">
+        <div className="mr-4 hidden md:flex">
+          <a className="mr-6 flex items-center space-x-2" href="/">
+            <span className="hidden font-bold sm:inline-block">
+              Deep Counsel
+            </span>
+          </a>
+        </div>
+        
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            {/* Search or other controls can go here */}
+          </div>
+          
+          <nav className="flex items-center space-x-2">
+            {/* Artifact Panel Toggle */}
+            <Button
+              variant={ui.artifactPanelOpen ? "secondary" : "ghost"}
+              size="sm"
+              onClick={toggleArtifactPanel}
+              className={cn(
+                "relative",
+                hasArtifacts && !ui.artifactPanelOpen && "text-primary"
+              )}
+            >
+              <PanelRight className="h-4 w-4" />
+              <span className="ml-2 hidden sm:inline">Artifacts</span>
+              {hasArtifacts && (
+                <Badge 
+                  variant="secondary" 
+                  className="ml-2 h-5 w-5 rounded-full p-0 text-xs"
+                >
+                  {artifactCount}
+                </Badge>
+              )}
+            </Button>
+            
+            <Separator orientation="vertical" className="h-6" />
+            
+            {/* Other controls */}
+            <Button variant="ghost" size="sm">
+              <FileText className="h-4 w-4" />
+              <span className="ml-2 hidden sm:inline">New Chat</span>
+            </Button>
+          </nav>
+        </div>
       </div>
     </header>
   )
