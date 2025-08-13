@@ -1,5 +1,5 @@
 import { Artifact } from '@/lib/types'
-import { nanoid, generateHash } from '@/lib/utils'
+import { generateHash,nanoid } from '@/lib/utils'
 
 // Artifact detection patterns
 const CODE_PATTERN = /```(\w+)?\n([\s\S]*?)```/g

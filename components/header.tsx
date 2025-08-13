@@ -1,12 +1,15 @@
 'use client'
 
 import React from 'react'
+
+import { FileText, PanelRight } from 'lucide-react'
+
+import { useChat } from '@/lib/chat-context'
+import { cn } from '@/lib/utils'
+
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { Badge } from '@/components/ui/badge'
-import { useChat } from '@/lib/chat-context'
-import { FileText, PanelRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 export function Header() {
   const { state, toggleArtifactPanel } = useChat()

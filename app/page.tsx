@@ -1,11 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
+
+import { Code, FileText, Scale,Send } from 'lucide-react'
+
+import { detectArtifacts } from '@/lib/artifact-detection'
+import { useChat } from '@/lib/chat-context'
+
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { useChat } from '@/lib/chat-context'
-import { detectArtifacts } from '@/lib/artifact-detection'
-import { Send, FileText, Code, Scale } from 'lucide-react'
 
 export default function HomePage() {
   const { state, addMessage, upsertArtifact } = useChat()

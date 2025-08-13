@@ -1,21 +1,22 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter as FontSans } from 'next/font/google'
 
+// import { Inter as FontSans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-
-import { cn } from '@/lib/utils'
-import { ChatProvider } from '@/lib/chat-context'
-import { ThemeProvider } from '@/components/theme-provider'
-import Header from '@/components/header'
-import { ArtifactPanel } from '@/components/artifact-panel'
 import { Toaster } from 'sonner'
+
+import { ChatProvider } from '@/lib/chat-context'
+import { cn } from '@/lib/utils'
+
+import { ArtifactPanel } from '@/components/artifact-panel'
+import Header from '@/components/header'
+import { ThemeProvider } from '@/components/theme-provider'
 
 import './globals.css'
 
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans'
-})
+// const fontSans = FontSans({
+//   subsets: ['latin'],
+//   variable: '--font-sans'
+// })
 
 const title = 'Deep Counsel AI Chat'
 const description =
@@ -51,8 +52,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen flex flex-col font-sans antialiased',
-          fontSans.variable
+          'min-h-screen flex flex-col font-sans antialiased'
+          // fontSans.variable
         )}
       >
         <ThemeProvider

@@ -1,14 +1,17 @@
 'use client'
 
 import React from 'react'
-import { X, Code, FileText, Image, Sheet, File, MoreHorizontal } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Sheet as SheetUI, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Badge } from '@/components/ui/badge'
+
+import { Code, File, FileText, Image, MoreHorizontal,Sheet, X } from 'lucide-react'
+
 import { useChat } from '@/lib/chat-context'
 import { Artifact } from '@/lib/types'
 import { cn, formatDate } from '@/lib/utils'
+
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Sheet as SheetUI, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 
 const artifactIcons = {
   code: Code,

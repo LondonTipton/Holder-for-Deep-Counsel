@@ -1,7 +1,8 @@
 'use client'
 
-import React, { createContext, useContext, useReducer, useCallback } from 'react'
-import { ChatState, ChatAction, ChatContextType, Message, Artifact } from '@/lib/types'
+import React, { createContext, useCallback,useContext, useReducer } from 'react'
+
+import { Artifact,ChatAction, ChatContextType, ChatState, Message } from '@/lib/types'
 import { nanoid } from '@/lib/utils'
 
 const initialState: ChatState = {

@@ -1,17 +1,18 @@
+import React, { useEffect, useRef } from 'react';
+import { renderToString } from 'react-dom/server';
+import ReactMarkdown from 'react-markdown';
+
 import OrderedMap from 'orderedmap';
 import {
-  Schema,
-  type Node as ProsemirrorNode,
-  type MarkSpec,
   DOMParser,
+  type MarkSpec,
+  type Node as ProsemirrorNode,
+  Schema,
 } from 'prosemirror-model';
 import { schema } from 'prosemirror-schema-basic';
 import { addListNodes } from 'prosemirror-schema-list';
 import { EditorState } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
-import React, { useEffect, useRef } from 'react';
-import { renderToString } from 'react-dom/server';
-import ReactMarkdown from 'react-markdown';
 
 import { diffEditor, DiffType } from '@/lib/editor/diff';
 

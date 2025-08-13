@@ -1,7 +1,10 @@
 import { memo } from 'react';
-import { CrossIcon } from './icons';
-import { Button } from './ui/button';
+
+import { X } from 'lucide-react';
+
 import { initialArtifactData, useArtifact } from '@/hooks/use-artifact';
+
+import { Button } from './ui/button';
 
 function PureArtifactCloseButton() {
   const { setArtifact } = useArtifact();
@@ -13,7 +16,7 @@ function PureArtifactCloseButton() {
       className="h-fit p-2 dark:hover:bg-zinc-700"
       onClick={() => {
         setArtifact((currentArtifact) =>
-          currentArtifact.status === 'streaming'
+          currentArtifact && currentArtifact.status === 'streaming'
             ? {
                 ...currentArtifact,
                 isVisible: false,
@@ -22,7 +25,7 @@ function PureArtifactCloseButton() {
         );
       }}
     >
-      <CrossIcon size={18} />
+      <X size={18} />
     </Button>
   );
 }

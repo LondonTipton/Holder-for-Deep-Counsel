@@ -1,9 +1,12 @@
-import type { Suggestion } from '@/lib/db/schema';
-import type { UseChatHelpers } from '@ai-sdk/react';
 import type { ComponentType, Dispatch, ReactNode, SetStateAction } from 'react';
-import type { UIArtifact } from './artifact';
-import type { ChatMessage, CustomUIDataTypes } from '@/lib/types';
+
+import type { UseChatHelpers } from '@ai-sdk/react';
 import type { DataUIPart } from 'ai';
+
+import type { Suggestion } from '@/lib/db/schema';
+import type { ChatMessage, CustomUIDataTypes } from '@/lib/types';
+
+import type { UIArtifact } from './artifact';
 
 export type ArtifactActionContext<M = any> = {
   content: string;
@@ -15,7 +18,7 @@ export type ArtifactActionContext<M = any> = {
   setMetadata: Dispatch<SetStateAction<M>>;
 };
 
-type ArtifactAction<M = any> = {
+export type ArtifactAction<M = any> = {
   icon: ReactNode;
   label?: string;
   description: string;

@@ -1,5 +1,3 @@
-import { formatDistance } from 'date-fns';
-import { AnimatePresence, motion } from 'framer-motion';
 import {
   type Dispatch,
   memo,
@@ -8,26 +6,33 @@ import {
   useEffect,
   useState,
 } from 'react';
+
+import type { UseChatHelpers } from '@ai-sdk/react';
+import { formatDistance } from 'date-fns';
+import equal from 'fast-deep-equal';
+import { AnimatePresence, motion } from 'framer-motion';
 import useSWR, { useSWRConfig } from 'swr';
 import { useDebounceCallback, useWindowSize } from 'usehooks-ts';
+
 import type { Document, Vote } from '@/lib/db/schema';
+import type { Attachment, ChatMessage } from '@/lib/types';
 import { fetcher } from '@/lib/utils';
-import { MultimodalInput } from './multimodal-input';
-import { Toolbar } from './toolbar';
-import { VersionFooter } from './version-footer';
+
+import { useArtifact } from '@/hooks/use-artifact';
+
+import { useSidebar } from './ui/sidebar';
 import { ArtifactActions } from './artifact-actions';
 import { ArtifactCloseButton } from './artifact-close-button';
 import { ArtifactMessages } from './artifact-messages';
-import { useSidebar } from './ui/sidebar';
-import { useArtifact } from '@/hooks/use-artifact';
-import { imageArtifact } from '@/artifacts/image/client';
+import { MultimodalInput } from './multimodal-input';
+import { Toolbar } from './toolbar';
+import { VersionFooter } from './version-footer';
+import type { VisibilityType } from './visibility-selector';
+
 import { codeArtifact } from '@/artifacts/code/client';
+import { imageArtifact } from '@/artifacts/image/client';
 import { sheetArtifact } from '@/artifacts/sheet/client';
 import { textArtifact } from '@/artifacts/text/client';
-import equal from 'fast-deep-equal';
-import type { UseChatHelpers } from '@ai-sdk/react';
-import type { VisibilityType } from './visibility-selector';
-import type { Attachment, ChatMessage } from '@/lib/types';
 
 export const artifactDefinitions = [
   textArtifact,
